@@ -1,0 +1,31 @@
+I"Ú(function() {
+  $(function() {
+    window.s3AdditionalData = {};
+    $("#s3-uploader").S3Uploader({
+      additional_data: s3AdditionalData,
+      before_add: function(file) {
+        s3AdditionalData.name = $('#name').val();
+        $('#js-upload-alert').addClass('hide');
+        if (file.name.match(/^.*\.csv$/)) {
+          $('#js-invalid-filetype-alert').addClass('hide');
+          return true;
+        } else {
+          $('#js-invalid-filetype-alert').removeClass('hide');
+          return false;
+        }
+      }
+    });
+    $("#s3-uploader").bind("s3_upload_complete", function(e, content) {
+      alert("Upload succeeded!");
+      return window.location = '/';
+    });
+    return $("#s3-uploader").bind("s3_upload_failed", function(e, content) {
+      window.lala = content;
+      $('.upload').last().remove();
+      $('#js-upload-error').text(content.error_thrown || "Connection Lost");
+      return $('#js-upload-alert').removeClass('hide');
+    });
+  });
+
+}).call(this);
+:ET

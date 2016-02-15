@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
+
+
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Rails Omniauth" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Rails Omniauth" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "DFS Albatross" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "DFS Albatross" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
+    <%= stylesheet_link_tag 'base' %>
+    <link rel="stylesheet" type="text/css" href="custom.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+
+
   <body>
     <header>
       <%= render 'layouts/navigation' %>
@@ -16,5 +23,11 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+
+     <!-- =============== VENDOR SCRIPTS ===============-->
+      <%= javascript_include_tag 'base' %>
+      <!-- =============== APP SCRIPTS ===============-->
+      <%= javascript_include_tag 'application' %>
   </body>
+
 </html>

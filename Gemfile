@@ -17,8 +17,10 @@ group :development do
 end
 gem 'bootstrap-sass'
 gem 'high_voltage'
+gem 'bcrypt-ruby'
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-identity'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

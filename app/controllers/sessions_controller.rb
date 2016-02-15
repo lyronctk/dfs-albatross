@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :create
 
   def new
     redirect_to '/auth/twitter'
@@ -10,12 +11,14 @@ class SessionsController < ApplicationController
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
     reset_session
     session[:user_id] = user.id
-    redirect_to root_url, :notice => 'Signed in!'
+    flash[:success] = "Signed In!"
+    redirect_to root_url
   end
 
   def destroy
     reset_session
-    redirect_to root_url, :notice => 'Signed out!'
+    flash[:success] = "Signed Out!"
+    redirect_to root_url
   end
 
   def failure
