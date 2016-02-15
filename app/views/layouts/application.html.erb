@@ -6,10 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "DFS Albatross" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "DFS Albatross" %>">
+
+    <link rel='stylesheet' href='/assets/fonts/Oleo.css'>
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/stylesheets/css/style.css">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
     <%= stylesheet_link_tag 'base' %>
-    <link rel="stylesheet" type="text/css" href="custom.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>

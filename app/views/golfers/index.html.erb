@@ -1,0 +1,39 @@
+<div class="index">
+   <table>
+      <div class="index-line">
+         <thead>
+            <tr>
+               <th>Rank</th>
+               <th>Name</th>
+               <th>Score to Par</th>
+               <th>Hole</th>
+               <!-- LAST UPDATE ROUND -->
+               <th>Probability to Win</th>
+               <th>Probability to Make Cut</th>
+               <th>Probability of MDF</th>
+               <th>Stats</th>
+               <th colspan="3"></th>
+            </tr>
+         </thead>
+
+
+         <br>
+         <tbody>
+            <% @golfers.each do |golfer| %> 
+            <tr>
+               <td><%= golfer.rank %></td>
+               <td><%= golfer.name %></td>
+               <td><%= golfer.score_to_par %></td>
+               <td><%= 'R' + golfer.last_update_round.to_s + ' : H' + golfer.last_update_hole.to_s %></td>
+               <td><%= (golfer.probability_win*100.0).to_s + '%' %></td>
+               <td><%= (golfer.probability_make_cut*100.0).to_s + '%' %></td>
+               <td><%= (golfer.probability_mdf*100.0).to_s + '%' %></td>
+               <td><%= golfer.stats %></td>
+            </tr>
+            <% end %>
+         </tbody>
+      </div>
+   </table>
+   <br>
+
+</div>
