@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215020940) do
+ActiveRecord::Schema.define(version: 20160215182403) do
+
+  create_table "golfers", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "rank"
+    t.integer  "score_to_par"
+    t.integer  "last_update_hole"
+    t.integer  "last_update_round"
+    t.float    "probability_win"
+    t.float    "probability_make_cut"
+    t.float    "probability_mdf"
+    t.string   "stats"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.string   "name"
