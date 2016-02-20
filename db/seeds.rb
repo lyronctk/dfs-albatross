@@ -14,5 +14,25 @@ for i in 0..20
 		          probability_win: 0.13, 
 		          probability_make_cut: 0.51, 
 		          probability_mdf: 0.63, 
-		          stats: "Birdies+ : 2, Birdies : 7, Par : 19, Bogeys : 6, Bogeys- : 2")
+		          stats: "Birdies+:2|Birdies:7|Par:19|Bogeys:6|Bogeys-:2")
+
+	GolfLineup.create!(contest_id: 1234,
+					   dk_name: "Sharp-shooter",
+					   dk_score: 240,
+					   golfer1: 6789,
+					   golfer2: 5445,
+					   golfer3: 5645,
+					   golfer4: 8877,
+					   golfer5: 2122,
+					   golfer6: 3435,
+					   probability_win: 0.02,
+					   probability_mc: 0.1,
+					   probability_mf: 0.15,
+					   expected_payout: 100)
+
+	Contest.create!(name: "Something",
+					date_time: "2016-02-01 15:33:06",
+					entry_price: 3.50,
+					num_entries: 100000,
+					contest_type: "Cash")
 end

@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(version: 20160215222435) do
     t.date     "date_time"
     t.float    "entry_price"
     t.integer  "num_entries"
-    t.string   "type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "contest_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "golf_lineups", force: :cascade do |t|

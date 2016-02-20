@@ -5,7 +5,7 @@ class CreateContests < ActiveRecord::Migration
       t.date :date_time
       t.float :entry_price
       t.integer :num_entries
-      t.string :type
+      t.string :contest_type
 
       t.timestamps null: false
     end
