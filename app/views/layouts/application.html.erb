@@ -1,37 +1,103 @@
 <!DOCTYPE html>
 <html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>DFS Albatross</title>
+      <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "DFS Albatross" %>">
+      <!-- TEMPLATE CSS -->
+      <link href="/assets/css/application.css" rel="stylesheet">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <meta charset="utf-8">
+      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+   </head>
+   <body>
+      <!-- NAVBAR -->
+      <body class="background-dark">
+         <div class="logo">
+            <h4><a href="index.html">DFS <strong>Albatross</strong></a></h4>
+         </div>
+         <nav id="sidebar" class="sidebar nav-collapse collapse">
+            <ul id="side-nav" class="side-nav">
+              <li class="">
+                 <a href="index.html"><i class="fa fa-home"></i> <span class="name">Your Account</span></a>
+                 <a href="/golfers_index"><i class="fa fa-cubes"></i> <span class="name">Golfers</span></a>
+              </li>
 
-
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "DFS Albatross" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "DFS Albatross" %>">
-
-    <link rel='stylesheet' href='/assets/fonts/Oleo.css'>
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/stylesheets/css/style.css">
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'application', media: 'all', id: "maincss" %>
-    <%= stylesheet_link_tag 'base' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
-
-
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-    </main>
-
-     <!-- =============== VENDOR SCRIPTS ===============-->
-      <%= javascript_include_tag 'base' %>
-      <!-- =============== APP SCRIPTS ===============-->
-      <%= javascript_include_tag 'application' %>
-  </body>
-
+            </ul>
+         </nav>
+         <div class="wrap">
+         <header class="page-header">
+            <div class="navbar">
+               <ul class="nav navbar-nav navbar-right pull-right">
+                  <li class="divider"></li>
+                  <li class="hidden-xs">
+                     <a href="#" id="settings"
+                        title="Settings"
+                        data-toggle="popover"
+                        data-placement="bottom">
+                     <i class="fa fa-cog"></i>
+                     </a>
+                  </li>
+                  <li class="hidden-xs dropdown">
+                     <a href="#" title="Account" id="account"
+                        class="dropdown-toggle"
+                        data-toggle="dropdown">
+                     <i class="fa fa-user"></i>
+                     </a>
+                     <ul id="account-menu" class="dropdown-menu account" role="menu">
+                        <li role="presentation" class="account-picture">
+                           <img src="img/2.jpg" alt="">
+                           Philip Daineka
+                        </li>
+                        <li role="presentation">
+                           <a href="form_account.html" class="link">
+                           <i class="fa fa-user"></i>
+                           Profile
+                           </a>
+                        </li>
+                        <li role="presentation">
+                           <a href="component_calendar.html" class="link">
+                           <i class="fa fa-calendar"></i>
+                           Calendar
+                           </a>
+                        </li>
+                        <li role="presentation">
+                           <a href="#" class="link">
+                           <i class="fa fa-inbox"></i>
+                           Inbox
+                           </a>
+                        </li>
+                     </ul>
+                  </li>
+                  <li class="visible-xs">
+                     <a href="#"
+                        class="btn-navbar"
+                        data-toggle="collapse"
+                        data-target=".sidebar"
+                        title="">
+                     <i class="fa fa-bars"></i>
+                     </a>
+                  </li>
+                  <li class="hidden-xs"><a href="/"><i class="fa fa-sign-out"></i></a></li>
+               </ul>
+            </div>
+         </header>
+         <%= yield %>
+         <!-- common libraries. required for every page-->
+         <script src="/assets/lib/jquery/dist/jquery.min.js"></script>
+         <script src="/assets/lib/jquery-pjax/jquery.pjax.js"></script>
+         <script src="/assets/lib/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
+         <script src="/assets/lib/widgster/widgster.js"></script>
+         <script src="/assets/lib/underscore/underscore.js"></script>
+         <!-- common application js -->
+         <script src="/assets/js/app.js"></script>
+         <!-- page specific scripts -->
+         <!-- page specific libs -->
+         <script src="/assets/lib/jquery.sparkline/index.js"></script>
+         <!-- page application js -->
+         <script src="/assets/js/tables-static.js"></script>
+   </body>
 </html>
