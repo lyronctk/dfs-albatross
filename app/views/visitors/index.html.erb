@@ -1,41 +1,66 @@
-<h3>Welcome</h3>
-
-<p>
-	<%= link_to "Create an account", "/auth/identity/register" %>
-</p>
-
 <% flash.each do |key, value| %>
-   <div class="alert alert-<%= key %>"><%= value %></div>
+   <p><a class="btn btn-<%= key %>" id="show-<%= key %>-message" href="#"><%= value %></a></p>
  <% end %>
 
-<div class="block-center mt-xl wd-xl">
-   <!-- START panel-->	
-   <div class="panel panel-dark-transparent panel-flat">
-      <div class="panel-heading text-center">
-         <a href="#">
-            <img src="<%= image_path('angle/logo.png') %>" alt="Contigo.io" class="block-center img-rounded" />
-         </a>
-      </div>
-      <div class="panel-body">
-         <p class="text-center pv">SIGN IN TO CONTINUE.</p>
-
-         <!-- Login with idenity -->
-         <%= form_tag "auth/identity/callback" do %>
-         	<div class="form-group has-feedback">
-               <%= text_field_tag :auth_key, nil, placeholder: 'Enter your email' %>
-               <span class="fa fa-envelope form-control-feedback text-muted"></span>
+<body class="background-dark">
+   <div class="single-widget-container">
+      <section class="widget login-widget">
+         <header class="text-align-center">
+            <h4>Login to your account</h4>
+         </header>
+         <div class="body">
+              <%= form_tag "auth/identity/callback", html: {class:"no-margin"} do %> 
+               <fieldset>
+                  <div class="form-group">
+                     <label for="email" >Email</label>
+                     <div class="input-group">
+                        <span class="input-group-addon">
+                        <i class="fa fa-user"></i>
+                        </span>
+                        <%= text_field_tag :auth_key, nil, placeholder: 'Your Email', class: "form-control input-lg input-transparent" %>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="password" >Password</label>
+                     <div class="input-group input-group-lg">
+                        <span class="input-group-addon">
+                        <i class="fa fa-lock"></i>
+                        </span>
+                         <%= password_field_tag :password, nil, placeholder: 'Your Password', class: "form-control input-lg input-transparent" %>
+                     </div>
+                  </div>
+               </fieldset>
+               <div class="form-actions">
+                  <button type="submit" class="btn btn-block btn-lg btn-danger">
+                  <span class="small-circle">
+                  <i class="fa fa-caret-right"></i>
+                  </span>
+                  <small>Sign In</small>
+                  </button>
+                  <a class="forgot" href="#">Forgot Username or Password?</a>
+                  <p><a class="btn btn-success" id="show-success-message" href="#">Success Message</a></p>
+               </div>
+            <% end %>
+         </div>
+         <footer>
+            <div class="twitter-login">
+               <a href='/signin'>
+               <span>
+               <i class="fa fa-twitter-square fa-lg"></i> Login with Twitter
+               </span>
+               </a>
             </div>
-            <div class="form-group has-feedback">
-               <%= password_field_tag :password, nil, placeholder: 'Password' %>
-               <span class="fa fa-lock form-control-feedback text-muted"></span>
+            <div class="identity-login">
+               <a href="/auth/identity/register">
+               <span>
+               <i class="fa fa-pencil-square fa-lg"></i> Create an Account
+               </span>
+               </a>
             </div>
-            <button type="submit" class="btn btn-block btn-primary mt-lg">Login</button>
-         <% end %>
-
-      </div>
+         </footer>
+      </section>
    </div>
-   <!-- END panel-->
-</div>
+</body>
 
 
 
