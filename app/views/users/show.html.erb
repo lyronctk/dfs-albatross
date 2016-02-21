@@ -1,2 +1,6 @@
-<h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
+<% if flash[:notice] == "signed" %>
+	<script>notification('Signed In!', 'success')</script>
+<% end %>
+
+<h3>Your Account</h3>
+<p>Hello <%= @user.name %>!</p>

@@ -1,5 +1,5 @@
 $(function(){
-  Messenger().post("Thanks for checking out Messenger!");
+  Messenger().post("Thanks for checking out Messengers!");
 
   var loc = ['bottom', 'right'];
   var style = 'flat';

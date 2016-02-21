@@ -1,6 +1,6 @@
-<% flash.each do |key, value| %>
-   <p><a class="btn btn-<%= key %>" id="show-<%= key %>-message" href="#"><%= value %></a></p>
- <% end %>
+<% if flash[:notice] == "invalid"%>
+   <body onload="notification('Username or password is incorrect', 'error')">
+<% end %>
 
 <body class="background-dark">
    <div class="single-widget-container">
@@ -38,7 +38,6 @@
                   <small>Sign In</small>
                   </button>
                   <a class="forgot" href="#">Forgot Username or Password?</a>
-                  <p><a class="btn btn-success" id="show-success-message" href="#">Success Message</a></p>
                </div>
             <% end %>
          </div>
@@ -61,6 +60,3 @@
       </section>
    </div>
 </body>
-
-
-

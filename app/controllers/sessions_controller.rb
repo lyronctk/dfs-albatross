@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
+  skip_before_filter :require_login
 
   def new
     redirect_to '/auth/twitter'
@@ -11,8 +12,7 @@ class SessionsController < ApplicationController
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
     reset_session
     session[:user_id] = user.id
-    flash[:success] = "Signed In!"
-    redirect_to root_url
+    redirect_to '/account', :notice => "signed"
   end
 
   def destroy
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
+    redirect_to root_url, :notice => "invalid"
   end
 
 end

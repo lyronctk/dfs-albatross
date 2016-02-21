@@ -33,6 +33,15 @@
 
 }).call(this);
 
+
+function notification(m, t){
+   Messenger().post({
+       message: m,
+       type: t,
+       showCloseButton: true
+   });
+}
+
 $(function(){
     function pageLoad(){
         $('.widget').widgster();
@@ -42,9 +51,6 @@ $(function(){
         $.globalMessenger({ theme: theme });
         Messenger.options = { theme: theme  };
 
-        Messenger().post("Thanks for checking out Messenger!");
-
-
         var loc = ['bottom', 'right'];
 
         var $lsel = $('.location-selector');
@@ -53,20 +59,13 @@ $(function(){
             var classes = 'messenger-fixed';
 
             for (var i=0; i < loc.length; i++)
-                classes += ' messenger-on-' + loc[i];
+                classes += ' messenger-on-top';
 
             $.globalMessenger({ extraClasses: classes, theme: theme  });
             Messenger.options = { extraClasses: classes, theme: theme };
         };
 
         update();
-
-        $lsel.locationSelector()
-            .on('update', function(pos){
-                loc = pos;
-
-                update();
-            });
 
         $('#show-error-message').on('click', function(){
             var i;
