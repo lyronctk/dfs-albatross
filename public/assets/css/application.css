@@ -41,6 +41,11 @@
   src: local("Open Sans Light Italic"), local("OpenSansLight-Italic"), url(fonts/google/open-sans-italic-light.woff) format("woff");
 }
 
+/*CUSTOM*/
+#extra-space{
+  /*margin: 20px;*/
+}
+
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
