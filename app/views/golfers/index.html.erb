@@ -22,28 +22,80 @@
                   </tr>
                </thead>
                <tbody>
-            <% @golfers.each do |golfer| %> 
-            <tr>
-               <td><%= golfer.rank %></td>
-               <td><%= golfer.name %></td>
-               <td><%= golfer.score_to_par %></td>
-               <td><%= 'R' + golfer.last_update_round.to_s + ' : H' + golfer.last_update_hole.to_s %></td>
-               <td><%= (golfer.probability_win*100.0).to_s + '%' %></td>
-               <td><%= (golfer.probability_make_cut*100.0).to_s + '%' %></td>
-               <td><%= (golfer.probability_mdf*100.0).to_s + '%' %></td>
+                     <% @golfers.each do |golfer| %> 
+                     <tr>
+                        <td><%= golfer.rank %></td>
+                        <td><%= golfer.name %></td>
+                        <td><%= golfer.score_to_par %></td>
+                        <td><%= 'R' + golfer.last_update_round.to_s + ' : H' + golfer.last_update_hole.to_s %></td>
+                        <td><%= (golfer.probability_win*100.0).to_s + '%' %></td>
+                        <td><%= (golfer.probability_make_cut*100.0).to_s + '%' %></td>
+                        <td><%= (golfer.probability_mdf*100.0).to_s + '%' %></td>
 
-               <% stats = golfer.stats.split("|")%>
+                        <% stats = golfer.stats.split("|")%>
 
-               <td> <span class="label label-success"><%= stats[0] %></span> 
-                    <span class="label label-success"><%= stats[1] %></span> 
-                    <span class="label label-warning"><%= stats[2] %></span>  
-                    <span class="label label-danger"><%= stats[3] %></span>  
-                    <span class="label label-danger"><%= stats[4] %></span>  </td></td>
-            </tr>
-            <% end %>
-         </tbody>
+                        <td> <span class="label label-success"><%= stats[0] %></span> 
+                             <span class="label label-success"><%= stats[1] %></span> 
+                             <span class="label label-warning"><%= stats[2] %></span>  
+                             <span class="label label-danger"><%= stats[3] %></span>  
+                             <span class="label label-danger"><%= stats[4] %></span>  </td></td>
+                     </tr>
+                     <% end %>
+               </tbody>
             </table>
          </div>
    </div>
    </section>
 </div>
+
+<section class="widget">
+   <header>
+       <h4>Table <span class="fw-semi-bold">Styles</span></h4>
+       <div class="widget-controls">
+           <a data-widgster="expand" title="Expand" href="#"><i class="glyphicon glyphicon-chevron-up"></i></a>
+           <a data-widgster="collapse" title="Collapse" href="#"><i class="glyphicon glyphicon-chevron-down"></i></a>
+           <a data-widgster="close" title="Close" href="#"><i class="glyphicon glyphicon-remove"></i></a>
+       </div>
+   </header>
+   <div class="body">
+       <div class="mt">
+           <table id="datatable-table" class="table table-striped table-hover">
+               <thead>
+                  <tr>
+                     <th class="hidden-xs">Rank <span class="glyphicon glyphicon-resize-vertical"></span></th>
+                     <th class="no-sort hidden-xs">Name <span class="glyphicon glyphicon-user"></span></th>
+                     <th class="no-sort hidden-xs">STP <span class="glyphicon glyphicon-fire"></span></th>
+                     <th class="no-sort hidden-xs">Hole <span class="glyphicon glyphicon-pencil"></span></th>
+                     <th class="no-sort hidden-xs">Win %</th>
+                     <th class="no-sort hidden-xs">Make Cut %</th>
+                     <!-- <th class="no-sort hidden-xs">MDF %</th>
+                     <th class="no-sort hidden-xs">Stats <span class="glyphicon glyphicon-film"></span></th> -->
+                     <th colspan="3"></th>
+                  </tr>
+               </thead>
+                <tbody>
+                     <% @golfers.each do |golfer| %> 
+                     <tr>
+                        <td><%= golfer.rank %></td>
+                        <td><%= golfer.name %></td>
+                        <td><%= golfer.score_to_par %></td>
+                        <td><%= 'R' + golfer.last_update_round.to_s + ' : H' + golfer.last_update_hole.to_s %></td>
+                        <td><%= (golfer.probability_win*100.0).to_s + '%' %></td>
+                        <td><%= (golfer.probability_make_cut*100.0).to_s + '%' %></td>
+                        <!-- <td><%= (golfer.probability_mdf*100.0).to_s + '%' %></td>
+
+                        <% stats = golfer.stats.split("|")%>
+
+                        <td> <span class="label label-success"><%= stats[0] %></span> 
+                             <span class="label label-success"><%= stats[1] %></span> 
+                             <span class="label label-warning"><%= stats[2] %></span>  
+                             <span class="label label-danger"><%= stats[3] %></span>  
+                             <span class="label label-danger"><%= stats[4] %></span>  </td></td> -->
+                     </tr>
+                     <% end %>
+               </tbody>
+           </table>
+       </div>
+   </div>
+</section>
+
