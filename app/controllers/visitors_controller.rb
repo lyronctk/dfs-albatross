@@ -6,4 +6,7 @@ class VisitorsController < ApplicationController
 			redirect_to "/account"
 		end
 	end
+
+	def error
+	end
 end

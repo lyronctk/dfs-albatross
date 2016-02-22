@@ -10,4 +10,9 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new', :as => :signin
   get '/signout' => 'sessions#destroy', :as => :signout
   get '/auth/failure' => 'sessions#failure'
+
+  # ERROR PAGES
+   %w( 404 422 500 503 ).each do |code|
+    get code, :to => "visitors#error", :code => code
+  end
 end
