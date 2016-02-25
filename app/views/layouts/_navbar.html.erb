@@ -6,7 +6,8 @@
    <ul id="side-nav" class="side-nav">
      <li class="">
         <a href="/account"><i class="fa fa-home"></i> <span class="name">Your Account</span></a>
-        <a href="/golfers_index"><i class="fa fa-cubes"></i> <span class="name">Golfers</span></a>
+        <a href="/golfers_index"><i class="fa fa-group"></i> <span class="name">Golfers</span></a>
+        <a href="/contest_index"><i class="fa fa-trophy"></i> <span class="name">Contests</span></a>
      </li>
 
    </ul>
@@ -33,10 +34,10 @@
             <ul id="account-menu" class="dropdown-menu account" role="menu">
                <li role="presentation" class="account-picture">
                   <img src="img/2.jpg" alt="">
-                  Philip Daineka
+                  <%= User.find(session[:user_id])[:name] %>
                </li>
                <li role="presentation">
-                  <a href="form_account.html" class="link">
+                  <a href="/account" class="link">
                   <i class="fa fa-user"></i>
                   Profile
                   </a>
@@ -45,12 +46,6 @@
                   <a href="component_calendar.html" class="link">
                   <i class="fa fa-calendar"></i>
                   Calendar
-                  </a>
-               </li>
-               <li role="presentation">
-                  <a href="#" class="link">
-                  <i class="fa fa-inbox"></i>
-                  Inbox
                   </a>
                </li>
             </ul>

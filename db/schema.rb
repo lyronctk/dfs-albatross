@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215222435) do
+ActiveRecord::Schema.define(version: 20160225062016) do
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160215222435) do
     t.string   "contest_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.float    "win"
   end
 
   create_table "golf_lineups", force: :cascade do |t|
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160215222435) do
     t.string   "stats"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "contest_name"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -71,6 +73,7 @@ ActiveRecord::Schema.define(version: 20160215222435) do
     t.datetime "updated_at"
     t.string   "screenName"
     t.string   "email"
+    t.string   "DK_name"
   end
 
 end

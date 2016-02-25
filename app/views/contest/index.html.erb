@@ -1,0 +1,34 @@
+<h2 class="page-title">Live<span class="fw-semi-bold"> Contests</span></h2>
+<div class="row">
+   <div class="col-md-11">
+      <section class="widget">
+         <br>
+         <div class="table-responsive">
+            <table class="table table-hover" id="table">
+               <thead>
+                  <tr>
+                     <th><i class="fa fa-pencil-square-o"></i> Name</th>
+                     <th><i class="fa fa-database"></i> Type</th>
+                     <th><i class="fa fa-money"></i> Entry Price </th>
+                     <th># Entries</span></th>
+                     <th>% To Win</th>
+                     <th><span class="glyphicon glyphicon-envelope"></span> Expected Payoff</span></th>
+                     <th colspan="3"></th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <% @contests.each do |contest| %> 
+                  <tr>
+                     <td><%=contest.name%></td>
+                     <td><%=contest.contest_type%></td>
+                     <td>$<%='%.2f' % contest.entry_price%></td>
+                     <td><%=contest.num_entries%></td>
+                     <td><%= (contest.win*100.0).to_s + '%' %></td>
+                  </tr>
+                  <% end %>
+               </tbody>
+            </table>
+         </div>
+   </div>
+   </section>
+</div>

@@ -14,6 +14,7 @@ for i in 0..20
 		          probability_win: 0.13, 
 		          probability_make_cut: 0.51, 
 		          probability_mdf: 0.63, 
+		          contest_name: "Star Wars",
 		          stats: "Birdies+:2|Birdies:7|Par:19|Bogeys:6|Bogeys-:2")
 
 	GolfLineup.create!(contest_id: 1234,
@@ -34,5 +35,6 @@ for i in 0..20
 					date_time: "2016-02-01 15:33:06",
 					entry_price: 3.50,
 					num_entries: 100000,
+					win: 0.04,
 					contest_type: "Cash")
 end
