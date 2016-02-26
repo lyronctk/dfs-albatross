@@ -17,7 +17,8 @@ for i in 0..20
 		          contest_name: "Star Wars",
 		          stats: "Birdies+:2|Birdies:7|Par:19|Bogeys:6|Bogeys-:2")
 
-	GolfLineup.create!(contest_id: 1234,
+	GolfLineup.create!(rank: 23,
+					   contest_id: 1234,
 					   dk_name: "Sharp-shooter",
 					   dk_score: 240,
 					   golfer1: 6789,
@@ -36,5 +37,6 @@ for i in 0..20
 					entry_price: 3.50,
 					num_entries: 100000,
 					win: 0.04,
-					contest_type: "Cash")
+					contest_type: "Cash",
+					expected_payoff: 50.5)
 end

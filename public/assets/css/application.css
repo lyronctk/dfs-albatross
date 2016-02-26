@@ -1,3 +1,11 @@
+/*CUSTOM*/
+.move{
+  margin-left: -28px;
+}
+
+
+
+
 @charset "UTF-8";
 @font-face {
   font-family: 'Open Sans';
@@ -21666,6 +21674,10 @@ svg {
 
 .width-200 {
   width: 200px;
+}
+
+.width-300{
+  width: 300px;
 }
 
 .width-n-200 {

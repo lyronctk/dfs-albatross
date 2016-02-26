@@ -1,0 +1,76 @@
+<div class="content container">
+
+  <div class="row">
+    <div class="col-md-11">
+          <div class="thumbnail">
+              <img src="/assets/img/ball_sky.jpg" alt="">
+              <div class="caption">
+                  <h4><span class="glyphicon glyphicon-fire"></span> Your <strong>Leading</strong> Lineup <span class="glyphicon glyphicon-fire"></span></h4>
+                  <p>TABLE TABLE TABLE TABLE</p>
+              </div>
+          </div>
+    </div>
+  </div>
+
+  <br/>
+
+  <h2 class="page-title">Your <span class="fw-semi-bold">Lineups</span></h2>
+  <div class="row">
+     <div class="col-md-11">
+        <section class="widget">
+           <br>
+           <div class="table-responsive">
+              <table class="table table-hover" id="table">
+                 <thead>
+                    <tr>
+                       <th>Rank <span class="glyphicon glyphicon-resize-vertical"></span></th>
+                       <th>DK Score <span class="glyphicon glyphicon-user"></span></th>
+                       <th>Lineup <span class="glyphicon glyphicon-fire"></span></th>
+                       <th>Win %</th>
+                       <th>Make Cut %</th>
+                       <th>MDF %</th>
+                       <th>Expected Payout <span class="glyphicon glyphicon-envelope"></span></span></th>
+                       <th colspan="3"></th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <% @golf_lineups.each do |lineup| %> 
+                    <tr>
+                       <td><%= lineup.rank %></td>
+                       <td><%= lineup.dk_score %></td>
+                       <td>
+                        <div class="col-md-12 move">
+                          <div class="panel-group" id="accordion3">
+                              <div class="panel">
+                                  <div class="panel-heading">
+                                      <a class="accordion-toggle collapsed" data-toggle="collapse" href="#collapseOneTwo">
+                                          Golfers
+                                      </a>
+                                  </div>
+                                  <div id="collapseOneTwo" class="panel-collapse collapse">
+                                      <div class="panel-body">
+                                          <li>Golfer 1</li>
+                                          <li>Golfer 2</li>
+                                          <li>Golfer 3</li>
+                                          <li>Golfer 4</li>
+                                          <li>Golfer 5</li>
+                                          <li>Golfer 6</li>
+                                          <br>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                       </td>
+                       <td><%= lineup.probability_win*100 %>%</td>
+                       <td><%= lineup.probability_mc*100 %>%</td>
+                       <td><%= lineup.probability_mf*100 %>%</td>
+                       <td>$<%= lineup.expected_payout.to_s %></td>
+                    </tr>
+                    <% end %>
+                 </tbody>
+              </table>
+           </div>
+     </div>
+     </section>
+  </div>
+</div>
