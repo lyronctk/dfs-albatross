@@ -4,9 +4,19 @@
     <div class="col-md-11">
           <div class="thumbnail">
               <img src="/assets/img/ball_sky.jpg" alt="">
-              <div class="caption">
-                  <h4><span class="glyphicon glyphicon-fire"></span> Your <strong>Leading</strong> Lineup <span class="glyphicon glyphicon-fire"></span></h4>
-                  <p>TABLE TABLE TABLE TABLE</p>
+              <div class="caption thumbnail-compress">
+                  <h4 style="text-align: center"><span class="glyphicon glyphicon-fire"></span> Your <strong>Leading</strong> Lineup <span class="glyphicon glyphicon-fire"></span></h4>
+                   <div class="body">
+                      <ul id="grid" class="row thumbnail-compress">
+                          <li class="col-sm-3 leading-block">
+                              <section class="widget col-sm-3 leading-icon"><span class="glyphicon glyphicon-picture leading-icon"></span></section>
+                              <% lineup = @golf_lineups.first%>
+                              <a href="#" class="thumbnail">
+                                  <h3 class="leading-text">Rank: <%= lineup.rank %></h3>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
               </div>
           </div>
     </div>
@@ -14,7 +24,7 @@
 
   <br/>
 
-  <h2 class="page-title">Your <span class="fw-semi-bold">Lineups</span></h2>
+  <h2 class="page-title"><i>Your <span class="fw-semi-bold">Lineups</span></i></h2>
   <div class="row">
      <div class="col-md-11">
         <section class="widget">
@@ -43,18 +53,19 @@
                           <div class="panel-group" id="accordion3">
                               <div class="panel">
                                   <div class="panel-heading">
-                                      <a class="accordion-toggle collapsed" data-toggle="collapse" href="#collapseOneTwo">
-                                          Golfers
+                                      <a class="accordion-toggle collapsed" id="lineup-drop" data-toggle="collapse" href="#collapseOneTwo">Golfers
                                       </a>
                                   </div>
                                   <div id="collapseOneTwo" class="panel-collapse collapse">
-                                      <div class="panel-body">
-                                          <li>Golfer 1</li>
-                                          <li>Golfer 2</li>
-                                          <li>Golfer 3</li>
-                                          <li>Golfer 4</li>
-                                          <li>Golfer 5</li>
-                                          <li>Golfer 6</li>
+                                      <div class="panel-body" style="text-align: center">
+                                        <ul>
+                                          <li>Tiger Woods</li>
+                                          <li>Jordan Spleth</li>
+                                          <li>Jason Day</li>
+                                          <li>Rory Mcllroy</li>
+                                          <li>Bubba Watson</li>
+                                          <li>Rickie Fowler</li>
+                                        </ul>
                                           <br>
                                       </div>
                                   </div>

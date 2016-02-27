@@ -1,11 +1,3 @@
-/*CUSTOM*/
-.move{
-  margin-left: -28px;
-}
-
-
-
-
 @charset "UTF-8";
 @font-face {
   font-family: 'Open Sans';
@@ -25820,4 +25812,33 @@ table.table thead .sorting_desc_disabled {
   .col-print-offset-11 {
     margin-left: 91.6666666667%;
   }
+}
+
+/*CUSTOM*/
+.move{
+  margin-left: -22px;
+}
+.leading-icon{
+  padding: 4px 0 1px 6px;
+  font-size: 32.5px;
+  margin-right: 10px;
+}
+.leading-text{
+  margin-top: 10px;
+  color: white;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(fonts/google/open-sans-bold.woff) format("woff");
+}
+.leading-block{
+  text-align: left;
+  margin-top: 20px;
+}
+#lineup-drop{
+  text-align: center;
+  padding-left: 0;
+}
+.thumbnail-compress{
+  margin-bottom: -10px;
 }
