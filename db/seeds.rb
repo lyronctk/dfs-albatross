@@ -7,19 +7,19 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 for i in 0..20
-	Golfer.create!(name: "Lyron" + i.to_s,
-		          rank: 100, score_to_par: -10,
+	Golfer.create!(name: "Jordan Speith " + i.to_s,
+		          rank: 10, score_to_par: -10,
 		          last_update_hole: 17,
 		          last_update_round: 3, 
 		          probability_win: 0.13, 
 		          probability_make_cut: 0.51, 
 		          probability_mdf: 0.63, 
-		          contest_name: "Star Wars",
+		          contest_name: "Pebble Beach",
 		          stats: "Birdies+:2|Birdies:7|Par:19|Bogeys:6|Bogeys-:2")
 
 	GolfLineup.create!(rank: 23,
 					   contest_id: 1234,
-					   dk_name: "Sharp-shooter",
+					   dk_name: "boozinbuffalo",
 					   dk_score: 240,
 					   golfer1: 6789,
 					   golfer2: 5445,
@@ -32,7 +32,7 @@ for i in 0..20
 					   probability_mf: 0.15,
 					   expected_payout: 100)
 
-	Contest.create!(name: "Something",
+	Contest.create!(name: "Best Ball" + i.to_s,
 					date_time: "2016-02-01 15:33:06",
 					entry_price: 3.50,
 					num_entries: 100000,
