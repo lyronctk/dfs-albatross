@@ -45,9 +45,9 @@
                        <td><%= golfer.name %></td>
                        <td><%= golfer.score_to_par %></td>
                        <td><%= 'R' + golfer.last_update_round.to_s + ' : H' + golfer.last_update_hole.to_s %></td>
-                       <td><%= sprintf('%.1f', (golfer.probability_win*100.0)).to_s. + '%' %></td>
-                       <td><%= sprintf('%.1f', (golfer.probability_make_cut*100.0)).to_s + '%' %></td>
-                       <td><%= sprintf('%.1f', (golfer.probability_mdf*100.0)).to_s + '%' %></td>
+                       <td><%= ('%.1f' % (golfer.probability_win*100.0)).to_s. + '%' %></td>
+                       <td><%= ('%.1f' % (golfer.probability_make_cut*100.0)).to_s + '%' %></td>
+                       <td><%= ('%.1f' % (golfer.probability_mdf*100.0)).to_s + '%' %></td>
                        <% stats = golfer.stats.split("|")%>
                        <td> <span class="label label-success"><%= stats[0] %></span> 
                           <span class="label label-success"><%= stats[1] %></span> 

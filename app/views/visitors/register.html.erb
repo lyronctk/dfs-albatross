@@ -5,15 +5,15 @@
             <h4>Register for an Account</h4>
          </header>
          <div class="body">
-              <%= form_tag "auth/identity/callback", html: {class:"no-margin"} do %> 
+              <%= form_tag "auth/identity/register", html: {class:"no-margin"} do %> 
                <fieldset>
                   <div class="form-group">
                      <label for="email" >Email</label>
                      <div class="input-group">
                         <span class="input-group-addon">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-envelope"></i>
                         </span>
-                        <%= text_field_tag :auth_key, nil, placeholder: 'Your Email', class: "form-control input-lg input-transparent" %>
+                        <%= text_field_tag :auth_key, nil, placeholder: 'Your Email', class: "form-control input-lg input-transparent", required: true %>
                      </div>
                   </div>
                   <div class="form-group">
@@ -22,14 +22,17 @@
                         <span class="input-group-addon">
                         <i class="fa fa-lock"></i>
                         </span>
-                         <%= password_field_tag :password, nil, placeholder: 'Your Password', class: "form-control input-lg input-transparent" %>
+                         <%= password_field_tag :password, nil, placeholder: 'Your Password', class: "form-control input-lg input-transparent", required: true, id: 'password_field' %>
+                         <span class="input-group-addon" id="show" onClick="show();">
+                            <span class="glyphicon glyphicon-eye-open" id="eye"></span>
+                         </span>
                      </div>
                   </div>
                   <div class="form-group">
                      <label for="dk_username" >DraftKings Username</label>
                      <div class="input-group input-group-lg">
                         <span class="input-group-addon">
-                        <i class="fa fa-lock"></i>
+                           <i class="fa fa-user"></i>
                         </span>
                          <%= text_field_tag :dk_username, nil, placeholder: '(OPTIONAL) DraftKings Username', class: "form-control input-lg input-transparent" %>
                      </div>
@@ -49,3 +52,20 @@
       </section>
    </div>
 </body>
+
+<script>
+   function show(){
+      // alert("INSIDE SHOW");
+      var obj = document.getElementById('password_field');
+      var eye = document.getElementById("eye");
+
+      if(eye.className == "glyphicon glyphicon-eye-open"){
+         obj.type = "text";
+         eye.className = "glyphicon glyphicon-eye-close"
+      }
+      else{
+         obj.type = "password"
+         eye.className = "glyphicon glyphicon-eye-open"
+      }
+   }
+</script>
