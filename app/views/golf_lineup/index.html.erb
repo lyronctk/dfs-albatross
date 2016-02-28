@@ -1,32 +1,75 @@
 <div class="content container">
+  <div class="col-md-11">
 
   <div class="row">
-    <div class="col-md-11">
-          <div class="thumbnail">
-              <img src="/assets/img/ball_sky.jpg" alt="">
-              <div class="caption thumbnail-compress">
-                  <h4 style="text-align: center"><span class="glyphicon glyphicon-fire"></span> Your <strong>Leading</strong> Lineup <span class="glyphicon glyphicon-fire"></span></h4>
-                   <div class="body">
-                      <ul id="grid" class="row thumbnail-compress">
-                          <li class="col-sm-3 leading-block">
-                              <section class="widget col-sm-3 leading-icon"><span class="glyphicon glyphicon-picture leading-icon"></span></section>
-                              <% lineup = @golf_lineups.first%>
-                              <a href="#" class="thumbnail">
-                                  <h3 class="leading-text">Rank: <%= lineup.rank %></h3>
-                              </a>
-                          </li>
-                      </ul>
-                  </div>
+    <div class="thumbnail">
+        <img src="/assets/img/ball_sky.jpg" alt="">
+    </div>
+  </div>
+
+  
+  <div class="row" style="margin-left: -20px">
+      <% lineup = @golf_lineups.first%>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="icon">
+                  <%= lineup.rank %>
+              </div>
+              <div class="description">
+                  <span class="glyphicon glyphicon-upload"></span> Ranking 
               </div>
           </div>
-    </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="big-text">
+                  <%= lineup.dk_score %>
+              </div>
+              <div class="description">
+                  <i class="fa fa-bar-chart"></i>
+                  Draft King Score
+              </div>
+          </div>
+      </div>
+
+      <div class="col-md-4 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="big-text" style="font-size: 26px">
+                  <i class="fa fa-trophy"></i> Leading Lineup <i class="fa fa-trophy"></i>
+              </div>
+              <div class="description">
+                  <p>Tom Brady - Cam Newton - Von Miller</p> <p>Michael Oher - C.J. Anderson -  Greg Olsen</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="big-text">
+                  $<%= lineup.expected_payout %>
+              </div>
+              <div class="description">
+                  Expected Payout
+                  <i class="fa fa-thumbs-up"></i>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="box">
+              <div class="icon">
+                  <%= lineup.probability_win*100 %>%</strong>
+              </div>
+              <div class="description">
+                  Chance to <strong>Win</strong>
+                  <i class="fa fa-ticket"></i>
+              </div>
+          </div>
+      </div>
   </div>
 
   <br/>
 
-  <h2 class="page-title"><i>Your <span class="fw-semi-bold">Lineups</span></i></h2>
+  <i><h2 class="page-title" style="margin-left: -14px">Your <span class="fw-semi-bold">Lineups</span> <small>blah blah blah</small></i></h2></i>
   <div class="row">
-     <div class="col-md-11">
         <section class="widget">
            <br>
            <div class="table-responsive">
@@ -34,12 +77,70 @@
                  <thead>
                     <tr>
                        <th>Rank <span class="glyphicon glyphicon-resize-vertical"></span></th>
-                       <th>DK Score <span class="glyphicon glyphicon-user"></span></th>
-                       <th>Lineup <span class="glyphicon glyphicon-fire"></span></th>
+                       <th>DK Score <i class="fa fa-bar-chart"></i></th>
+                       <th>Lineup <i class="fa fa-trophy"></i></th>
                        <th>Win %</th>
                        <th>Make Cut %</th>
                        <th>MDF %</th>
-                       <th>Expected Payout <span class="glyphicon glyphicon-envelope"></span></span></th>
+                       <th>Expected Payout <i class="fa fa-thumbs-up"></i></th>
+                       <th colspan="3"></th>
+                    </tr>
+                 </thead>
+                 <tbody>
+                    <% @golf_lineups.each do |lineup| %> 
+                    <tr>
+                       <td><%= lineup.rank %></td>
+                       <td><%= lineup.dk_score %></td>
+                       <td>
+                        <div class="col-md-12 move">
+                          <div class="panel-group" id="accordion3">
+                              <div class="panel">
+                                  <div class="panel-heading">
+                                      <a class="accordion-toggle collapsed" id="lineup-drop" data-toggle="collapse" href="#collapseOneTwo">Golfers
+                                      </a>
+                                  </div>
+                                  <div id="collapseOneTwo" class="panel-collapse collapse">
+                                      <div class="panel-body" style="text-align: center">
+                                        <ul>
+                                          <li>Tiger Woods</li>
+                                          <li>Jordan Spleth</li>
+                                          <li>Jason Day</li>
+                                          <li>Rory Mcllroy</li>
+                                          <li>Bubba Watson</li>
+                                          <li>Rickie Fowler</li>
+                                        </ul>
+                                          <br>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                       </td>
+                       <td><%= lineup.probability_win*100 %>%</td>
+                       <td><%= lineup.probability_mc*100 %>%</td>
+                       <td><%= lineup.probability_mf*100 %>%</td>
+                       <td>$<%= lineup.expected_payout.to_s %></td>
+                    </tr>
+                    <% end %>
+                 </tbody>
+              </table>
+           </div>
+     </div>
+
+     <i><h2 class="page-title" style="margin-left: -14px">Total <span class="fw-semi-bold">Lineups</span> <small>blah blah blah</small></i></h2></i>
+  <div class="row">
+        <section class="widget">
+           <br>
+           <div class="table-responsive">
+              <table class="table table-hover" id="table">
+                 <thead>
+                    <tr>
+                       <th>Rank <span class="glyphicon glyphicon-resize-vertical"></span></th>
+                       <th>DK Score <i class="fa fa-bar-chart"></i></th>
+                       <th>Lineup <i class="fa fa-trophy"></i></th>
+                       <th>Win %</th>
+                       <th>Make Cut %</th>
+                       <th>MDF %</th>
+                       <th>Expected Payout <i class="fa fa-thumbs-up"></i></th>
                        <th colspan="3"></th>
                     </tr>
                  </thead>
