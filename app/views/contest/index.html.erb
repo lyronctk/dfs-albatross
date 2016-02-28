@@ -24,8 +24,8 @@
                         <td><%= link_to contest.contest_type, index_specific_path(:name => contest.name) %></td>
                         <td><%= link_to "$#{'%.2f' % contest.entry_price}", index_specific_path(:name => contest.name) %></td>
                         <td><%= link_to contest.num_entries, index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to "#{(contest.win*100.0).to_s}%", index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to "$#{contest.expected_payoff.to_s}", index_specific_path(:name => contest.name) %></td>
+                        <td><%= link_to "#{'%.2f' % (contest.win*100.0).to_s}%", index_specific_path(:name => contest.name) %></td>
+                        <td><%= link_to "$#{'%.2f' % contest.expected_payoff.to_s}", index_specific_path(:name => contest.name) %></td>
                      </tr>
                      <% end %>
                   </tbody>

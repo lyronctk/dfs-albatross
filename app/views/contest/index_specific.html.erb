@@ -22,8 +22,8 @@
                         <td><%=contest.contest_type%></td>
                         <td>$<%='%.2f' % contest.entry_price%></td>
                         <td><%=contest.num_entries%></td>
-                        <td><%= (contest.win*100.0).to_s%>%</td>
-                        <td>$<%=contest.expected_payoff.to_s%></td>
+                        <td><%= '%.2f' % (contest.win*100.0).to_s%>%</td>
+                        <td>$<%= '%.2f' % contest.expected_payoff.to_s%></td>
                      </tr>
                      <% end %>
                   </tbody>

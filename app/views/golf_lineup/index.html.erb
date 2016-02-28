@@ -44,8 +44,8 @@
       </div>
       <div class="col-md-2 col-sm-4 col-xs-6">
           <div class="box">
-              <div class="big-text">
-                  $<%= lineup.expected_payout %>
+              <div class="big-text" style="font-size: 26px">
+                  $<%= '%.2f' % lineup.expected_payout %>
               </div>
               <div class="description">
                   Equity
@@ -56,7 +56,7 @@
       <div class="col-md-2 col-sm-4 col-xs-6">
           <div class="box">
               <div class="icon">
-                  <%= lineup.probability_win*100 %>%</strong>
+                  <%= '%.2f' % (lineup.probability_win*100) %>%</strong>
               </div>
               <div class="description">
                   Chance to <strong>Win</strong>
@@ -115,10 +115,10 @@
                               </div>
                           </div>
                        </td>
-                       <td><%= lineup.probability_win*100 %>%</td>
-                       <td><%= lineup.probability_mc*100 %>%</td>
-                       <td><%= lineup.probability_mf*100 %>%</td>
-                       <td>$<%= lineup.expected_payout.to_s %></td>
+                       <td><%= '%.2f' % (lineup.probability_win*100) %>%</td>
+                       <td><%= '%.2f' % (lineup.probability_mc*100) %>%</td>
+                       <td><%= '%.2f' % (lineup.probability_mf*100) %>%</td>
+                       <td>$<%= '%.2f' % (lineup.expected_payout.to_s) %></td>
                     </tr>
                     <% end %>
                  </tbody>

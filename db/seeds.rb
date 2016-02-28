@@ -31,46 +31,47 @@ for i in 0..20
 					   probability_mc: rand(0.001..0.20),
 					   probability_mf: rand(0.001..0.30),
 					   expected_payout: rand(3..10000))
+
+	Contest.create!(name: "Birdie",
+					date_time: "2016-02-01 15:33:06",
+					entry_price: 3,
+					num_entries: 100000,
+					win: rand(0.01..0.05),
+					contest_type: "GPP",
+					expected_payoff: 50.5)
+
+
+	Contest.create!(name: "Best Ball",
+					date_time: "2016-02-01 15:33:06",
+					entry_price: 27,
+					num_entries: 30000,
+					win: rand(0.01..0.05),
+					contest_type: "GPP",
+					expected_payoff: 140.5)
+
+
+	Contest.create!(name: "Hybrid",
+					date_time: "2016-02-01 15:33:06",
+					entry_price: 3,
+					num_entries: 100000,
+					win: rand(0.01..0.05),
+					contest_type: "GPP",
+					expected_payoff: 140.5)
+
+	Contest.create!(name: "Thunderdome",
+					date_time: "2016-02-01 15:33:06",
+					entry_price: 5300,
+					num_entries: 1000,
+					win: rand(0.01..0.10),
+					contest_type: "GPP",
+					expected_payoff: 7200)
+
+	Contest.create!(name: "$5 Double Up",
+					date_time: "2016-02-01 15:33:06",
+					entry_price: 5,
+					num_entries: 50000,
+					win: rand(0.25..0.70),
+					contest_type: "Cash",
+					expected_payoff: 100)
+
 end
-
-Contest.create!(name: "Birdie",
-				date_time: "2016-02-01 15:33:06",
-				entry_price: 3,
-				num_entries: 100000,
-				win: rand(0.01..0.05),
-				contest_type: "GPP",
-				expected_payoff: 50.5)
-
-
-Contest.create!(name: "Best Ball",
-				date_time: "2016-02-01 15:33:06",
-				entry_price: 27,
-				num_entries: 30000,
-				win: rand(0.01..0.05),
-				contest_type: "GPP",
-				expected_payoff: 140.5)
-
-
-Contest.create!(name: "Hybrid",
-				date_time: "2016-02-01 15:33:06",
-				entry_price: 3,
-				num_entries: 100000,
-				win: rand(0.01..0.05),
-				contest_type: "GPP",
-				expected_payoff: 140.5)
-
-Contest.create!(name: "Thunderdome",
-				date_time: "2016-02-01 15:33:06",
-				entry_price: 5300,
-				num_entries: 1000,
-				win: rand(0.01..0.10),
-				contest_type: "GPP",
-				expected_payoff: 7200)
-
-Contest.create!(name: "$5 Double Up",
-				date_time: "2016-02-01 15:33:06",
-				entry_price: 5,
-				num_entries: 50000,
-				win: rand(0.25..0.70),
-				contest_type: "Cash",
-				expected_payoff: 100)
