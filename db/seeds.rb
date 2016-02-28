@@ -32,7 +32,13 @@ for i in 0..20
 					   probability_mf: 0.15,
 					   expected_payout: 100)
 
-	Contest.create!(name: "Best Ball" + i.to_s,
+	if(i%2 == 0)
+		contest_name = 'Superbowl'
+	else
+		contest_name = 'World Cup'
+	end
+
+	Contest.create!(name: contest_name,
 					date_time: "2016-02-01 15:33:06",
 					entry_price: 3.50,
 					num_entries: 100000,
