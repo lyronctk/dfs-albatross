@@ -1,6 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :twitter, Rails.application.secrets.omniauth_provider_key, Rails.application.secrets.omniauth_provider_secret
-  provider :identity
+  provider :identity, :fields => [:dk_username]
 
    on_failure do |env|
     message_key = env['omniauth.error.type']

@@ -9,4 +9,7 @@ class VisitorsController < ApplicationController
 
 	def error
 	end
+
+	def register
+	end
 end
