@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226031004) do
+ActiveRecord::Schema.define(version: 20160228223050) do
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160226031004) do
     t.string   "screenName"
     t.string   "email"
     t.string   "DK_name"
+    t.string   "auth_token"
   end
 
 end

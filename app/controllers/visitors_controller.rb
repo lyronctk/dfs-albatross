@@ -11,5 +11,8 @@ class VisitorsController < ApplicationController
 	end
 
 	def register
+		if user_signed_in?
+			redirect_to "/account"
+		end
 	end
 end

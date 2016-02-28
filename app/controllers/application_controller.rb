@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
     def current_user
       begin
-        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+        @current_user ||= User.find_by_auth_token!(cookies[:auth_token]) if cookies[:auth_token]
       rescue Exception => e
         nil
       end
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     end
 
     def correct_user?
-      @user = User.find(session[:user_id])
+      @user = User.find_by_auth_token!(cookies[:auth_token])
       unless current_user == @user
         redirect_to root_url, :alert => "Access denied."
       end

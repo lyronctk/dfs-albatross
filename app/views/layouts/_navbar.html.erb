@@ -40,7 +40,7 @@
             <ul id="account-menu" class="dropdown-menu account" role="menu">
                <li role="presentation" class="account-picture">
                   <img src="img/2.jpg" alt="">
-                  <%= User.find(session[:user_id])[:name] %>
+                  <%= User.find_by_auth_token!(cookies[:auth_token])[:name] %>
                </li>
                <li role="presentation">
                   <a href="/account" class="link">

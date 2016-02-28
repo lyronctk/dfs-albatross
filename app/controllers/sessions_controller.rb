@@ -8,15 +8,20 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
+    puts "PROVIDER IS #{auth['provider']}"
+    puts "UID IS #{auth['uid']}"
     user = User.where(:provider => auth['provider'],
                       :uid => auth['uid'].to_s).first || User.create_with_omniauth(auth)
-    reset_session
-    session[:user_id] = user.id
+    if params[:remember_me]
+      cookies.permanent[:auth_token] = user.auth_token
+    else
+      cookies[:auth_token] = user.auth_token
+    end
     redirect_to '/account', :notice => "signed"
   end
 
   def destroy
-    reset_session
+    cookies.delete(:auth_token)
     flash[:success] = "Signed Out!"
     redirect_to root_url
   end

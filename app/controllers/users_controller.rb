@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :correct_user?
   
   def show
-    @user = User.find(session[:user_id])
+    @user = User.find_by_auth_token!(cookies[:auth_token])
   end
 
 end
