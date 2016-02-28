@@ -26,12 +26,12 @@
                      </div>
                   </div>
                   <div class="form-group">
-                     <label for="password" >Draft Kings Username <small>&nbsp *OPTIONAL</small></label>
+                     <label for="dk_username" >DraftKings Username</label>
                      <div class="input-group input-group-lg">
                         <span class="input-group-addon">
                         <i class="fa fa-lock"></i>
                         </span>
-                         <%= password_field_tag :password, nil, placeholder: 'Draft Kings Username', class: "form-control input-lg input-transparent" %>
+                         <%= text_field_tag :dk_username, nil, placeholder: '(OPTIONAL) DraftKings Username', class: "form-control input-lg input-transparent" %>
                      </div>
                   </div>
                </fieldset>
