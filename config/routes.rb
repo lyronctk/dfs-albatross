@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/account' => "users#show"
   get '/golfers_index' => 'golfers#index'
   get '/contest_index' => 'contest#index'
+  get '/index_specific' => 'contest#index_specific'
   get '/golf_lineup_index' => 'golf_lineup#index'
   get '/auth/:provider/callback' => 'sessions#create'
   post '/auth/:provider/callback' => 'sessions#create'

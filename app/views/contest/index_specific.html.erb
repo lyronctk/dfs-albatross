@@ -1,5 +1,5 @@
 <div class="content container">
-   <h2 class="page-title"><i>Live<span class="fw-semi-bold"> Contests</span></i></h2>
+   <h2 class="page-title"><i><%= @contests.first.name %></i></h2>
    <div class="row">
       <div class="col-md-11">
          <section class="widget">
@@ -8,7 +8,6 @@
                <table class="table table-hover" id="table">
                   <thead>
                      <tr>
-                        <th>Contest Name <i class="fa fa-ticket"></i></i></th>
                         <th>Type <i class="fa fa-database"></i></th>
                         <th>Entry Price <i class="fa fa-money"></i></th>
                         <th>Entries #</span></th>
@@ -20,12 +19,11 @@
                   <tbody>
                      <% @contests.each do |contest| %> 
                      <tr>
-                        <td><%= link_to contest.name, index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to contest.contest_type, index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to "$#{'%.2f' % contest.entry_price}", index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to contest.num_entries, index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to "#{(contest.win*100.0).to_s}%", index_specific_path(:name => contest.name) %></td>
-                        <td><%= link_to "$#{contest.expected_payoff.to_s}", index_specific_path(:name => contest.name) %></td>
+                        <td><%=contest.contest_type%></td>
+                        <td>$<%='%.2f' % contest.entry_price%></td>
+                        <td><%=contest.num_entries%></td>
+                        <td><%= (contest.win*100.0).to_s%>%</td>
+                        <td>$<%=contest.expected_payoff.to_s%></td>
                      </tr>
                      <% end %>
                   </tbody>
