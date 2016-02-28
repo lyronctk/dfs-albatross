@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
   end
 
   def create
+    puts "HELLO IM IN SESSIONS CREATE"
+    puts "REQUEST IS #{request.env["omniauth.auth"]}"
     auth = request.env["omniauth.auth"]
     puts "PROVIDER IS #{auth['provider']}"
     puts "UID IS #{auth['uid']}"
